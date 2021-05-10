@@ -118,10 +118,13 @@ function retornaUltimoElemento(array) {
 
 function trocaPrimeiroEUltimo(array) {
    // implemente sua lógica aqui
-   let primeiro = array[0]
-   let ultimo = array[array.length - 1]
-   
-   ///não consegui resolver.
+   const primeiro = retornaPrimeiroElemento(array)
+   const ultimo = retornaUltimoElemento(array)
+
+   array[0]= ultimo
+   array[array.length - 1]=primeiro
+
+   return array
 
 }
 
@@ -137,24 +140,38 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 
 function checaRenovacaoRG() {
    // implemente sua lógica aqu
+   const anoAtual = Number(prompt('Digite o ano atual: '))
+   const anoNascimento = Number(prompt('Digite o ano de seu nascimento: '))
+   const anoDeEmissao = Number(prompt('Digite o ano de emissão do seu documento: '))
 
-   }
+   const idade = anoAtual - anoNascimento
+   const tempoCarteira = anoAtual - anoDeEmissao
+
+   const cond1 = idade <=20 && tempoCarteira >=5
+   const cond2 = idade >20 && idade <= 50 && tempoCarteira >=10
+   const cond3 = idade > 50 && tempoCarteira >=15
+
+   console.log(cond1 || cond2 || cond3)
+
+}
 
 // Exercício 14
 
 function checaAnoBissexto(ano) {
    // implemente sua lógica aqui
+   const cond1 = ano % 400 === 0
+   const cond2 = (ano % 4 === 0) && (ano % 100 !== 0)
+   return cond1 || cond2 
 }
 
 // Exercício 15
 
-function checaValidadeInscricaoLabenu(pessoa) {
+function checaValidadeInscricaoLabenu() {
    // implemente sua lógica aqui
-   const idade = prompt('Você tem mais de 18 anos? ')
-   const ensinoMedioCompleto = prompt('Você tem ensino médio completo? ')
-   const disponibilidadeExclusica = prompt('Você possui disponibilidade exclusiva durante os horários do curso? ')
+   const maiorDeIdade = prompt('Você tem mais de 18 anos? ')
+   const ensinoMedio = prompt('Você possui ensino médio completo? ')
+   const disponibilidade = prompt('Você possui disponibilidade nos horários do curso? ')
 
-   const podeEstudarNaLabenu = 
-   console.log(podeEstudarNaLabenu)
+   console.log(maiorDeIdade === "sim" && ensinoMedio === "sim" && disponibilidade === "sim")
 
 }
