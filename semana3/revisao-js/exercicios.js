@@ -8,8 +8,15 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   
+   const novoArray = array.filter((num)=>{
+      return num%2 === 0
+   }).map((num)=>{
+      return num*num
+   })
+
+   return novoArray
 }
+
 
 //Exercício 3
 
@@ -56,7 +63,7 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   
 }
 
 // Exercício 10
@@ -74,7 +81,12 @@ function ordenaArray(array) {
 // Exercício 12
 
 function filmeFavorito() {
-   // implemente sua lógica aqui
+   nome = 'O Diabo Veste Prada',
+   ano = 2006,
+   diretor = 'David Frankel',
+   atores = ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+
+   return filmeFavorito
 }
 
 // Exercício 13
