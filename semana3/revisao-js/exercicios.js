@@ -114,24 +114,47 @@ return array
 // Exercício 12
 
 function filmeFavorito() {
-   nome = 'O Diabo Veste Prada',
-   ano = 2006,
-   diretor = 'David Frankel',
-   atores = ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
-
-   return filmeFavorito
+   const filme = {
+      nome: 'O diabo veste prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+   }
+return filme
 }
 
 // Exercício 13
 
 function imprimeChamada() {
-   // implemente sua lógica aqui
+   const filme = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel',
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+  }
+
+let atoresConcat = ""
+for(let i = 0; i < filme.atores.length; i++) {
+   if(i === filme.atores.length - 1) {
+   atoresConcat += filme.atores[i]
+   }else {
+      atoresConcat += filme.atores[i] + ", "
+      }
+   }
+
+  return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido pOr ${filme.diretor} e estrelado por ${atoresConcat}.`
 }
 
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
+   const retangulo = {
+      largura: lado1,
+      altura: lado2,
+      perimetro: 2*(lado1 + lado2),
+      area: lado1 * lado2
+   }
+   return retangulo
 }
 
 // Exercício 15
