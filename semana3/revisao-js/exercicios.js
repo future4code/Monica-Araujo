@@ -55,7 +55,7 @@ return array.length
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+   return [false, false, true, true, true]
 }
 
 //Exercício 7
@@ -86,7 +86,6 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   
 }
 
 // Exercício 10
@@ -98,7 +97,18 @@ function segundoMaiorEMenor(array) {
 //Exercício 11
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
+   const len = array.length;
+   for (let i = 0; i < len; i++) {
+      for (let j = 0; j < len; j++) {
+         if(array [j] > array [j + 1]) {
+            let tmp = array[j];
+            array [j] = array [j + 1];
+            array[j + 1] = tmp;
+         }
+      }
+
+   }
+return array
 }
 
 // Exercício 12
