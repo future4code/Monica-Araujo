@@ -1,7 +1,11 @@
 //Exercício 1
 
 function inverteArray(array) {
-  
+  let arrayInvertido = [];
+  for(let i = array.length - 1; i >= 0; i--){
+     arrayInvertido.push(array[i])
+  }
+return arrayInvertido
 }
 
 
@@ -44,7 +48,7 @@ function retornaExpressoesBooleanas() {
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   //implemente sua lógica aqui
+   
 }
 
 // Exercício 8
