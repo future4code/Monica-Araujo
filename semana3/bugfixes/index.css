@@ -95,6 +95,10 @@ div>p:first-child {
   *
   **/
 
+div > table{
+    margin: 0 auto;
+}
+
 div:nth-child(2),
 div:last-child {
     text-align: center;
@@ -140,8 +144,14 @@ td > img {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 50px;
 }
+
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+.container-do-voltar {
+    text-align: center;
 }
