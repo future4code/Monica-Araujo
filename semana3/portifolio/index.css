@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+li{
+    list-style: none;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    background-color:silver;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    color: rgb(136, 135, 133);
+}
+
+#topMenu {
+    display: flex;
+    background-color: grey;
+    margin: 0;
+}
+
+#topMenu li {
+    color: white;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#topMenu li :first-child{
+    margin-right: auto;
+}
+
+
+.titulo{
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.perfil-foto {
+    border-radius: 50%;
+    margin: 0 auto 2rem auto;
+    
+}
+
+.perfil span {
+    font-size: 24px;
+}
+
+.perfil p {
+    font-size: 18PX;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+
+.perfil {
+    background-color: rgb(241, 237, 237);
+    padding: 4rem;
+    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+    border-radius: 50px;
+    text-align: center;
+    margin-top: 7rem;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+}
+
+.redes li {
+    margin-right: 1rem;
+}
+
+.apresentação h1 {
+    font-size: 34px;
+    background-color: rgb(227, 243, 79);
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    color: black;
+    text-align: center;
+    margin-top: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1349px;
+
+}
+
+.apresentação p{
+    color: black;
+    background-color: rgb(227, 243, 79);
+    text-align: center;
+    justify-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.formação {
+    background-color: silver;
+    color: black;
+    text-align: center;
+    justify-items: center;
+    display: block;
+}
+
+.formação h1 {
+    font-size: 34px;
+    font-weight: bold;
+    background-color: rgb(227, 243, 79);
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    color: black;
+    text-align: center;
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1349px;
+}
+
+.formação p {
+    text-align: center;
+    justify-items: center;
+    font-size: 25px;
+    display: block;
+    width: 100%;
+}
+
+.projetos h1{
+    font-size: 34px;
+    font-weight: bold;
+    background-color: rgb(227, 243, 79);
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    color: black;
+    text-align: center;
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1349px;
+}
+
+.projetos h2{
+    background-color: rgb(241, 237, 237);
+    padding: 3rem;
+    border-radius: 50%;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    margin-top: 3rem;
+    width: 80px;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    background-color: grey;
+    cursor: pointer;
+    box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
+}
+
+.habilidades h1{
+    font-size: 34px;
+    font-weight: bold;
+    background-color: rgb(227, 243, 79);
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    color: black;
+    text-align: center;
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1349px;
+}
+
+.habilidades li {
+    color: black;
+    font-size: 23px;
+    text-align: center;
+}
+
+.form h1 {
+    font-size: 34px;
+    font-weight: bold;
+    background-color: rgb(227, 243, 79);
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    color: black;
+    text-align: center;
+    margin-top: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1349px;
+}
+
+.form form {
+    font-size: 23px;
+    color: black;
+    text-align: center;
+}
+
+footer {
+    background-color: grey;
+    color: white;
+    width: 1349px;
+    text-align: center;
+    margin-top: 4rem;
+    align-items: center;
+}

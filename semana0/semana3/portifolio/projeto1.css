@@ -1,0 +1,46 @@
+#topMenu {
+    display: flex;
+    background-color: grey;
+    margin: auto;
+    padding: 0;
+}
+
+#topMenu li {
+    color: white;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#topMenu li :first-child{
+    margin-right: auto;
+}
+
+
+.seçao1{
+    display: flex;
+    height: 33vh;
+    background-color: rgb(227, 243, 79);
+    
+}
+
+.centralize{
+    margin: auto;
+    text-align: center;
+    color: black;
+    font-size: 24px;
+}
+
+.secao2{
+    display: flex;
+    background-color: white;
+    width: 80vw;
+    margin-top: 7rem;
+    text-align: left;
+}
+
+.imagem-projeto {
+    width: 18vw;
+    height: 15vw;
+}
+
