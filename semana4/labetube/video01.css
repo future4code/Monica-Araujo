@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    padding: 16px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
+    height: 70px;
+    padding: 8px;
+}
+
+#texBusca{
+    margin-right: 32px;
+    padding: 8px;
+}
+
+.video {
+    width: 100%
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    height: 70px;
+    align-items: center;
+}
+
