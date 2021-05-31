@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h2, p {
+    padding: 8px;
+}
+
+header {
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    grid-column: 1/-1;
+}
+
+.icone {
+    width: 30px;
+    margin: 0 6px 6px 0;
+}
+
+.icone-e-texto {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    grid-row: 2/3;
+    background-color: #f2d0e0;
+}
+
+.botao-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imagem-card {
+    width: 100%;
+}
+
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 5px darkgray;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 8px;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    grid-template-columns: 300px 1fr;
+}
+
+footer {
+    background-color: mediumvioletred;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    grid-column: 1/-1;
+}
