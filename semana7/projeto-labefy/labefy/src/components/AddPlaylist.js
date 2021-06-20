@@ -2,6 +2,15 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+const Headers = styled.header`
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  padding-bottom: 1%;
+  padding-left: 5%;
+  margin: 0;
+`;
+
 const AddConteiner = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -27,6 +36,7 @@ const ButtonAdd = styled.button`
   padding: 1%;
   background-color: purple;
   color: white;
+  cursor: pointer;
 `;
 
 const ButtonViewPlaylists = styled.button`
@@ -36,6 +46,7 @@ const ButtonViewPlaylists = styled.button`
   padding: 1%;
   background-color: purple;
   color: white;
+  cursor: pointer;
 `;
 
 class AddPlaylist extends React.Component {
@@ -76,7 +87,6 @@ class AddPlaylist extends React.Component {
     return (
       <AddConteiner>
         <Title>Bem vindo ao Labefy!</Title>
-
         <p>Crie uma nova playlist:</p>
         <AddField
           value={this.state.name}
