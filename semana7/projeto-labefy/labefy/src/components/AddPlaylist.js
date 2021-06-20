@@ -2,15 +2,6 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-const Headers = styled.header`
-  background-color: black;
-  color: white;
-  font-size: 30px;
-  padding-bottom: 1%;
-  padding-left: 5%;
-  margin: 0;
-`;
-
 const AddConteiner = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
