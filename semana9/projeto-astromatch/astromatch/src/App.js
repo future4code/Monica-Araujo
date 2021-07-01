@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import TelaInicial from './components/TelaInicial'
 import IconeUsuario from  './img/iconeusuario.png'
 import TelaMatches from './components/TelaMatches'
+import Seta from './img/seta.png'
+import axios from 'axios'
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0px;
     padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif
   }
 `
 
-const Logo = styled.h2`
+const Logo = styled.h1`
   color: #570668;
-  margin-left: 100px;
+  margin-left: 80px;
 `
 
 const Header = styled.div`
@@ -47,12 +49,6 @@ const ContainerMain = styled.div`
   flex-direction: column;
 `
 
-const IconeUser = styled.div`
-  align-content: flex-end;
-  align-items: center;
-  cursor: pointer;
-`
-
 const Botao = styled.button`
   border: none;
   background-color: white;
@@ -60,7 +56,53 @@ const Botao = styled.button`
 `
 
 
-function App() {
+const App = () => {
+  const [pagina, setPagina] = useState('TelaInicial');
+
+  const mudaPagina = () => {
+    setPagina('TelaMatches')
+  }
+
+  const mudaPaginaInicial = () => {
+    setPagina('TelaInicial')
+  }
+
+  const RenderizaPagina = () => {
+    switch (pagina) {
+      case "TelaInicial": 
+        return <TelaInicial/>
+      case "TelaMatches": 
+        return <TelaMatches/>
+      default: 
+        return alert('Página não econtrada')
+    }
+  }
+
+  const RenderizaIcone = () => {
+    switch (pagina) {
+      case "TelaInicial": 
+        return (
+          <img
+            src={IconeUsuario}
+            alt="icone-match"
+            onClick={mudaPagina}
+          />
+        );
+      case "TelaMatches":
+        return (
+          <img
+            src={Seta}
+            alt="icone-match"
+            onClick={mudaPaginaInicial}
+          />
+        );
+      default:
+        return alert('página não encontrada')
+    }
+  }
+
+
+
   return (
     <div>
       <GlobalStyle/>
@@ -70,13 +112,9 @@ function App() {
             <div>
               <Logo>astromatch</Logo>
             </div>
-            <IconeUser>
-              <Botao><img src={IconeUsuario} /></Botao>
-            </IconeUser>
+            <Botao>{RenderizaIcone()}</Botao>
           </Header>
-          {/*<TelaInicial/>*/}
-          <TelaMatches/>
-
+          {RenderizaPagina()}
         </ContainerMain>
       </Container>
     </div>
