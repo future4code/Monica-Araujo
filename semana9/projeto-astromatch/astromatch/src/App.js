@@ -2,27 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { createGlobalStyle } from 'styled-components'
 import TelaInicial from './components/TelaInicial'
+import IconeUsuario from  './img/iconeusuario.png'
+import TelaMatches from './components/TelaMatches'
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0px;
     padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 `
 
 const Logo = styled.h2`
-  color: purple
+  color: #570668;
+  margin-left: 100px;
 `
 
 const Header = styled.div`
   display: flex;
   height: 10%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding-left: 10px;
   border-bottom: 1px solid silver;
   width: 97%;
-  
 `
 
 const Container = styled.div`
@@ -44,6 +47,19 @@ const ContainerMain = styled.div`
   flex-direction: column;
 `
 
+const IconeUser = styled.div`
+  align-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+`
+
+const Botao = styled.button`
+  border: none;
+  background-color: white;
+  cursor: pointer;
+`
+
+
 function App() {
   return (
     <div>
@@ -51,9 +67,16 @@ function App() {
       <Container>
         <ContainerMain>
           <Header>
-            <Logo>Astromatch</Logo>
+            <div>
+              <Logo>astromatch</Logo>
+            </div>
+            <IconeUser>
+              <Botao><img src={IconeUsuario} /></Botao>
+            </IconeUser>
           </Header>
-          <TelaInicial/>
+          {/*<TelaInicial/>*/}
+          <TelaMatches/>
+
         </ContainerMain>
       </Container>
     </div>
