@@ -29,15 +29,19 @@ const Label = styled.label`
     top: 330px;
     color: black;
     width: 94%;
-    text-align: center;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+
 `
 
 const Botoes = styled.div`
     display: flex;
     align-items: center;
-    padding-top: 50px;
     justify-content: space-around;
+    margin-top: 25px;
 `
+
 const BotaoVermelho = styled.button`
     border: none;
     background-color: white;
@@ -64,52 +68,59 @@ const BotaoVerde = styled.button`
     }
 `
 
-function TelaInicial () {
-    const [profile, setProfile] = useState ({})
+const H3 = styled.h3`
+    display: inline;
+
+`
+
+const TelaInicial = () => {
+    const [people, setPeople] = useState ([])
 
     useEffect (() => {
-        getPerfil()
+        getPeople()
     }, [])
 
-    const getPerfil = () => {
-        axios.get(`${BASE_URL}/person`)
+    const getPeople = () => {
+        axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/monica-araujo/person`)
             .then((res) => {
-                setProfile(res.data.profile)
+                setPeople(res.data.profile)
             })
             .catch((error) => {
-                alert(error.data)
+                alert('deu ruim')
             })
     }
-/*
+
     const escolhePessoa = (escolhe) => {
         const body = {
-            id: profile.id,
+            id: people.id,
             choice: escolhe
         }
 
-        axios.post(`${BASE_URL}/choose-person`, body)
-            .then((res) => {
-                getPerfil()
+        axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/monica-araujo/choose-person`, body)
+            .then(() => {
+                getPeople()
             })
             .catch((error) => { 
                 alert(error.res)
 
             })
     }
-*/
+
     return (
         <Main>
             <All>
-                <Img src={profile.photo}/>
+                <Img src={people.photo}/>
                 <Label>
-                    <p>{profile.name}</p>
-                    <p>{profile.age}</p>
-                    <p>{profile.bio}</p> 
-                    <Botoes>
-                        <BotaoVermelho /*onClick={() => escolhePessoa(false)*/><img src={X} width="30px"/></BotaoVermelho>
-                        <BotaoVerde /*onClick={() => escolhePessoa(true)*/><img src ={Coracao} width="40px"/></BotaoVerde>
-                    </Botoes>
+                    <div>
+                        <H3>{people.name}</H3>
+                        <span>{` , ${people.age}`}</span>
+                    </div>
+                    <p>{people.bio}</p> 
                 </Label>
+                <Botoes>
+                    <BotaoVermelho onClick={() => escolhePessoa(false)}><img src={X} width="30px"/></BotaoVermelho>
+                    <BotaoVerde onClick={() => escolhePessoa(true)}><img src ={Coracao} width="40px"/></BotaoVerde>
+                </Botoes>
             </All>
         </Main>
     )

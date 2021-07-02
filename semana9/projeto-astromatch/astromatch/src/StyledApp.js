@@ -49,11 +49,17 @@ const Botao = styled.button`
   cursor: pointer;
 `
 
+const DivBotao = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 export {
   GlobalStyle,
   Logo,
   Header,
   Container,
   ContainerMain,
-  Botao
+  Botao,
+  DivBotao
 }

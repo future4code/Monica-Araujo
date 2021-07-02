@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import {GlobalStyle, Logo, Header, Container, ContainerMain, Botao} from './StyledApp'
+import {GlobalStyle, Logo, Header, Container, ContainerMain, Botao, DivBotao} from './StyledApp'
 import TelaInicial from './components/TelaInicial'
 import IconeUsuario from  './img/iconeusuario.png'
 import TelaMatches from './components/TelaMatches'
 import Seta from './img/seta.png'
+import BotaoReseta from './components/BotaoReseta'
 
 const App = () => {
   const [pagina, setPagina] = useState('TelaInicial');
@@ -62,6 +63,9 @@ const App = () => {
             <Botao>{RenderizaIcone()}</Botao>
           </Header>
           {RenderizaPagina()}
+          <DivBotao>
+            <BotaoReseta/>
+          </DivBotao>
         </ContainerMain>
       </Container>
     </div>

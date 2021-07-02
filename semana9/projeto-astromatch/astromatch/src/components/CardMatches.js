@@ -26,8 +26,8 @@ const MainCard = styled.button`
         background-color: #d3d3d3;
     }
 `
-function CardMatches() {
-/*
+const CardMatches = () => {
+
     const [matches, setMatches] = useState([])
 
     useEffect(()=>{
@@ -36,7 +36,7 @@ function CardMatches() {
     
 
     const getMatches = () =>{
-        axios (`${BASE_URL}/matches`)
+        axios (`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/monica-araujo/matches`)
         .then((res) =>{
             setMatches(res.data.matches)
         })
@@ -51,11 +51,13 @@ function CardMatches() {
             {profile.name}
         </MainCard>
     })
-*/
+
 return (
     <div>
-        <p>Oiii</p>
+        {mapMatches}
     </div>
+    
+
     )
 
 }
