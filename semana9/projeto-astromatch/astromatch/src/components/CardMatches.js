@@ -27,7 +27,7 @@ const MainCard = styled.button`
     }
 `
 function CardMatches() {
-
+/*
     const [matches, setMatches] = useState([])
 
     useEffect(()=>{
@@ -51,9 +51,11 @@ function CardMatches() {
             {profile.name}
         </MainCard>
     })
-
+*/
 return (
-    {mapMatches}
+    <div>
+        <p>Oiii</p>
+    </div>
     )
 
 }

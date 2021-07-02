@@ -80,7 +80,7 @@ function TelaInicial () {
                 alert(error.data)
             })
     }
-
+/*
     const escolhePessoa = (escolhe) => {
         const body = {
             id: profile.id,
@@ -96,7 +96,7 @@ function TelaInicial () {
 
             })
     }
-
+*/
     return (
         <Main>
             <All>
@@ -106,8 +106,8 @@ function TelaInicial () {
                     <p>{profile.age}</p>
                     <p>{profile.bio}</p> 
                     <Botoes>
-                        <BotaoVermelho onClick={() => escolhePessoa(false)}><img src={X} width="30px"/></BotaoVermelho>
-                        <BotaoVerde onClick={() => escolhePessoa(true)}><img src ={Coracao} width="40px"/></BotaoVerde>
+                        <BotaoVermelho /*onClick={() => escolhePessoa(false)*/><img src={X} width="30px"/></BotaoVermelho>
+                        <BotaoVerde /*onClick={() => escolhePessoa(true)*/><img src ={Coracao} width="40px"/></BotaoVerde>
                     </Botoes>
                 </Label>
             </All>
