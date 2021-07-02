@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Pessoa from '../img/pessoa.jpg'
+import {BASE_URL} from "../constantes/url"
+import axios from 'axios'
+
 
 const Imagem = styled.img`
     width: 70px;
@@ -24,13 +26,34 @@ const MainCard = styled.button`
         background-color: #d3d3d3;
     }
 `
+function CardMatches() {
 
-const CardMatches = () => {
-    return (
-        <MainCard>
-            <Imagem src={Pessoa}/>
-            <p>Brooke Lynn Hytes</p>
+    const [matches, setMatches] = useState([])
+
+    useEffect(()=>{
+        getMatches()
+    }, [])
+    
+
+    const getMatches = () =>{
+        axios (`${BASE_URL}/matches`)
+        .then((res) =>{
+            setMatches(res.data.matches)
+        })
+        .catch((err) =>{
+            alert(err)
+        })
+    }
+
+    const mapMatches = matches.map((profile) =>{
+        return <MainCard key={profile.id}>
+            <Imagem src={profile.photo}/>
+            {profile.name}
         </MainCard>
+    })
+
+return (
+    {mapMatches}
     )
 
 }
