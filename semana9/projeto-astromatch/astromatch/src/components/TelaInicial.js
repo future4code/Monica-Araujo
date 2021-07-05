@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Coracao from '../img/coracao.png'
 import X from '../img/x.png'
-import {BASE_URL} from "../constantes/url"
 import axios from 'axios'
 
 const Main = styled.div`
@@ -74,16 +73,16 @@ const H3 = styled.h3`
 `
 
 const TelaInicial = () => {
-    const [people, setPeople] = useState ([])
+    const [pessoas, setPessoas] = useState ([])
 
     useEffect (() => {
-        getPeople()
+        getPessoas()
     }, [])
 
-    const getPeople = () => {
+    const getPessoas = () => {
         axios.get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/monica-araujo/person`)
             .then((res) => {
-                setPeople(res.data.profile)
+                setPessoas(res.data.profile)
             })
             .catch((error) => {
                 alert('deu ruim')
@@ -92,13 +91,13 @@ const TelaInicial = () => {
 
     const escolhePessoa = (escolhe) => {
         const body = {
-            id: people.id,
+            id: pessoas.id,
             choice: escolhe
         }
 
         axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/monica-araujo/choose-person`, body)
             .then(() => {
-                getPeople()
+                getPessoas()
             })
             .catch((error) => { 
                 alert(error.res)
@@ -109,13 +108,13 @@ const TelaInicial = () => {
     return (
         <Main>
             <All>
-                <Img src={people.photo}/>
+                <Img src={pessoas.photo}/>
                 <Label>
                     <div>
-                        <H3>{people.name}</H3>
-                        <span>{` , ${people.age}`}</span>
+                        <H3>{pessoas.name}</H3>
+                        <span>{` , ${pessoas.age}`}</span>
                     </div>
-                    <p>{people.bio}</p> 
+                    <p>{pessoas.bio}</p> 
                 </Label>
                 <Botoes>
                     <BotaoVermelho onClick={() => escolhePessoa(false)}><img src={X} width="30px"/></BotaoVermelho>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import {BASE_URL} from "../constantes/url"
 import axios from 'axios'
 
 
@@ -45,10 +44,10 @@ const CardMatches = () => {
         })
     }
 
-    const mapMatches = matches.map((profile) =>{
-        return <MainCard key={profile.id}>
-            <Imagem src={profile.photo}/>
-            {profile.name}
+    const mapMatches = matches.map((pessoas) =>{
+        return <MainCard key={pessoas.id}>
+            <Imagem src={pessoas.photo}/>
+            {pessoas.name}
         </MainCard>
     })
 
