@@ -12,10 +12,12 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #014366;
-    color: white
+    color: white;
   }
   button {
     border: none;
+    cursor:pointer;
+    padding: 10px;
   }
 `
 
