@@ -70,8 +70,7 @@ export const LoginPage = () => {
           localStorage.setItem('token', res.data.token)
           history.push('/admin/trips/list')
         }).catch ((err) => {
-          alert('As informações inseridas estão erradas. Você será direcionado para página inicial')
-          history.push('/')
+          alert('As informações inseridas estão erradas. Tente novamente')
         })
   }
 

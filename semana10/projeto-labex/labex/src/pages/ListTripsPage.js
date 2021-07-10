@@ -1,6 +1,8 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
+import { CardTrip } from '../components/CardTrip';
+import axios from 'axios'
 
 const Main = styled.div`
   display: flex;
@@ -9,6 +11,8 @@ const Main = styled.div`
   flex-direction: column;
 `
 const Button = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -27,6 +31,7 @@ const SpecificButton = styled.button`
 `
 
 export const ListTripsPage = () => {
+
   const history= useHistory()
 
   const goToApplicatonForm = () => {
@@ -37,14 +42,15 @@ export const ListTripsPage = () => {
     history.push('/')
   }
 
+  
   return (
     <Main >
       <h1>Nossas Viagens</h1>
-      <p>Aqui ficará a lista de viagens para o usuário escolher</p>
       <Button>
         <SpecificButton onClick={goToApplicatonForm}>Inscreva-se</SpecificButton>
         <SpecificButton onClick={goBack}>Voltar</SpecificButton>
       </Button>
+      <CardTrip />
     </Main>
   );
 }

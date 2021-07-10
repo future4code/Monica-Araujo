@@ -47,9 +47,11 @@ export const HomePage = () => {
     history.push('/trips/list')
   }
 
-  const goToLoginPage = () => {
-    history.push('/login')
+  const goToAdminPage = () => {
+    history.push('/admin/trips/list')
   }
+
+
 
   return (
     <Container >
@@ -58,7 +60,7 @@ export const HomePage = () => {
         <p>Encontre as melhores ofertas para sua viagem extra terrestre!</p>
         <Button>
           <SpecificButton onClick={goToListTripsPage}>Ver Viagens</SpecificButton>
-          <SpecificButton onClick={goToLoginPage}>Área Administrativa</SpecificButton>
+          <SpecificButton onClick={goToAdminPage}>Área Administrativa</SpecificButton>
         </Button>
       </Main>
       <Img>

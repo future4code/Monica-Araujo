@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import useProtectedPage from '../hooks/UseProtectedPage'
 
 const Main = styled.div`
   display: flex;
@@ -28,12 +29,18 @@ const SpecificButton = styled.button`
 `
 
 export const AdminHomePage = () => {
+  useProtectedPage()
+  
   const history= useHistory()
 
   const goBack = () => {
     history.push('/')
   }
-
+/*
+  const Logout = () => {
+    history.push('/')
+  }
+*/
   const goToCreateTripPage = () => {
     history.push ('/admin/trips/create')
   }
@@ -49,7 +56,7 @@ export const AdminHomePage = () => {
       <Button>
         <SpecificButton onClick={goBack}>Voltar</SpecificButton>
         <SpecificButton onClick={goToCreateTripPage}>Criar Viagem</SpecificButton>
-        <SpecificButton>Logout</SpecificButton>
+        <SpecificButton >Logout</SpecificButton>
       </Button>
       <p onClick={goToTripDetailsPage}>Viagem 1</p>
     </Main>

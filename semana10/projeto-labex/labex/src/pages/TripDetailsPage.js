@@ -1,5 +1,8 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import useProtectedPage from '../hooks/UseProtectedPage'
 
 const Main = styled.div`
   display: flex;
@@ -26,10 +29,25 @@ const SpecificButton = styled.button`
 `
 
 export const TripDetailsPage = () => {
+  useProtectedPage()
+  
+  useEffect (() => {
+    const token = localStorage.getItem('token')
+    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/monica/trip/7IIY7YtE3pzG1uf8ZdIO', {
+      headers: {
+        auth: token
+      }
+    })
+      .then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log('deu erro: ', err.res)
+      })
+  }, [])
+
   return (
     <Main >
       <h1>Detalhes da Viagem</h1>
-      <p>Aqui ficará todos os detalhes da viagem</p>
     </Main>
   );
 }
