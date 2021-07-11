@@ -1,7 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
-import { options } from 'yargs';
 import useForm from '../hooks/useForm'
 
 const Main = styled.div`
@@ -33,6 +32,20 @@ const Form = styled.form`
   align-items: center;
   justify-content: center;
   gap: 25px;
+  margin-top: 60px
+`
+const InputStyle = styled.input`
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: none
+`
+
+const SelectStyle = styled.select`
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: none
 `
 
 export const ApplicationFormPage = () => {
@@ -42,11 +55,6 @@ export const ApplicationFormPage = () => {
     history.push('/trips/list')
   }
 
-  const OnSubmitForm = () => {
-    Event.preventDefault()
-    alert('Seu cadastro foi enviado! Em breve entraremos em contato!', Form)
-  }
-
   const { form, onChange, cleanFields } = useForm ({
     name: '', 
     age:'', 
@@ -54,38 +62,54 @@ export const ApplicationFormPage = () => {
     profission:""
   })
 
+  const onSubmitForm = (event) => {
+    event.preventDefault()
+    alert('Seu cadastro foi enviado! Em breve entraremos em contato!')
+    cleanFields()
+  }
+
   return (
     <Main >
       <h1>Formulário para inscrição</h1>
-      <Form onSubmit={OnSubmitForm}>
-        <select 
+      <Form onSubmit={onSubmitForm}>
+        <SelectStyle
           
         />
-        <input 
+        <InputStyle 
           placeholder="Nome"
           value={form.name}
           name={'name'}
           onChange={onChange}
-          />
-        <input 
+          required
+          pattern={"^.{3,}"}
+          title={"O nome deve ter no mínimo 3 letras"}
+        />
+        <InputStyle 
           placeholder="Idade"
           value={form.age}
           name={'age'}
           onChange={onChange}
+          required
+          type={"number"}
+          min={18}
         />
-        <input 
+        <InputStyle 
           placeholder="Texto de Candidatura"
           value={form.text}
           name={'text'}
           onChange={onChange}
+          required
+          pattern={"^.{10,}"}
+          title={"O texto de candidatura deve ter no mínimo 10 caracteres"}
         />
-        <input 
+        <InputStyle 
           placeholder="Profissão"
           value={form.profission}
           name={'profission'}
           onChange={onChange}
+          required
         />
-        <select />
+        <SelectStyle />
         <Button>
           <SpecificButton>Enviar</SpecificButton>
           <SpecificButton onClick={goBackList}>Voltar</SpecificButton>
