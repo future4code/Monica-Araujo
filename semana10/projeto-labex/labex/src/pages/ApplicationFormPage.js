@@ -1,6 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components'
+import { options } from 'yargs';
+import useForm from '../hooks/useForm'
 
 const Main = styled.div`
   display: flex;
@@ -25,6 +27,13 @@ const SpecificButton = styled.button`
     font-weight: bold;
   } 
 `
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+`
 
 export const ApplicationFormPage = () => {
   const history= useHistory()
@@ -32,14 +41,56 @@ export const ApplicationFormPage = () => {
   const goBackList = () => {
     history.push('/trips/list')
   }
+
+  const OnSubmitForm = () => {
+    Event.preventDefault()
+    alert('Seu cadastro foi enviado! Em breve entraremos em contato!', Form)
+  }
+
+  const { form, onChange, cleanFields } = useForm ({
+    name: '', 
+    age:'', 
+    text:'', 
+    profission:""
+  })
+
   return (
     <Main >
       <h1>Formulário para inscrição</h1>
-      <p>Aqui ficará o formulario para inscrição do usuario</p>
-      <Button>
-        <SpecificButton>Enviar</SpecificButton>
-        <SpecificButton onClick={goBackList}>Voltar</SpecificButton>
-      </Button>
+      <Form onSubmit={OnSubmitForm}>
+        <select 
+          
+        />
+        <input 
+          placeholder="Nome"
+          value={form.name}
+          name={'name'}
+          onChange={onChange}
+          />
+        <input 
+          placeholder="Idade"
+          value={form.age}
+          name={'age'}
+          onChange={onChange}
+        />
+        <input 
+          placeholder="Texto de Candidatura"
+          value={form.text}
+          name={'text'}
+          onChange={onChange}
+        />
+        <input 
+          placeholder="Profissão"
+          value={form.profission}
+          name={'profission'}
+          onChange={onChange}
+        />
+        <select />
+        <Button>
+          <SpecificButton>Enviar</SpecificButton>
+          <SpecificButton onClick={goBackList}>Voltar</SpecificButton>
+        </Button>
+      </Form>
     </Main>
   );
 }

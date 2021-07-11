@@ -30,13 +30,12 @@ export const CardTrip = () => {
 
     const mapedTrips = tripsList.map((trip)=>{
         return <div key={trip.id}>
-           <h1>{trip.name}</h1>
+            <h1>{trip.name}</h1>
             <h3>Título: {trip.name}</h3>            {/* <= Estilizar cards*/}
             <h3>Descrição: {trip.description}</h3>
             <h3>Planeta: {trip.planet}</h3>
             <h3>Duração: {trip.durationInDays}</h3>
             <h3>Data: {trip.date}</h3>
-
         </div>
 
     })   
