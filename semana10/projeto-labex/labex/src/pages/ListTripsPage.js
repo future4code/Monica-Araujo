@@ -29,6 +29,19 @@ const SpecificButton = styled.button`
     font-weight: bold;
   } 
 `
+const Card = styled.div`
+  background-color: white;
+  width: 650px;
+  height: 170px;
+  border-radius: 10px;
+  color: #014366;
+  display: flex;
+  font-size: 18px;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  padding-left: 15px;
+`
 
 export const ListTripsPage = () => {
 
@@ -42,6 +55,26 @@ export const ListTripsPage = () => {
     history.push('/')
   }
 
+  const [trips, setTrips] = useState ([])
+
+  useEffect(() => {
+    axios.get
+      ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/monica/trips')
+      .then((res) =>{
+        setTrips(res.data.trips)
+      })
+  }, [])
+  
+  const tripsMaped = trips.map((trip) => {
+    return <Card>
+      <p><b>Nome: </b> {trip.name}</p>
+      <p><b>Descrição: </b> {trip.description}</p>
+      <p><b>Planeta: </b> {trip.planet}</p>
+      <p><b>Duração em dias: </b> {trip.durationInDays}</p>
+      <p><b>Data: </b> {trip.date}</p>
+      </Card>
+  })
+
   
   return (
     <Main >
@@ -50,7 +83,7 @@ export const ListTripsPage = () => {
         <SpecificButton onClick={goToApplicatonForm}>Inscreva-se</SpecificButton>
         <SpecificButton onClick={goBack}>Voltar</SpecificButton>
       </Button>
-      <CardTrip />
+      {tripsMaped}
     </Main>
   );
 }

@@ -1,4 +1,5 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import useProtectedPage from '../hooks/UseProtectedPage'
@@ -27,6 +28,23 @@ const SpecificButton = styled.button`
     font-weight: bold;
   } 
 `
+const CardTrip = styled.div`
+  background-color: white;
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  color: #014366;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  cursor: pointer;
+  &:hover{
+    background-color: lightblue;
+  }
+`
+
 
 export const AdminHomePage = () => {
   useProtectedPage()
@@ -36,11 +54,7 @@ export const AdminHomePage = () => {
   const goBack = () => {
     history.push('/')
   }
-/*
-  const Logout = () => {
-    history.push('/')
-  }
-*/
+
   const goToCreateTripPage = () => {
     history.push ('/admin/trips/create')
   }
@@ -49,16 +63,34 @@ export const AdminHomePage = () => {
     history.push('/admin/trips/:id')
 
   }
+
+  const [trips, setTrips] = useState ([])
+
+  useEffect(() => {
+    axios.get
+      ('https://us-central1-labenu-apis.cloudfunctions.net/labeX/monica/trips')
+      .then((res) =>{
+        setTrips(res.data.trips)
+        console.log()
+      })
+  }, [])
+  
+  const tripsMaped = trips.map((trip) => {
+    return <CardTrip onClick={goToTripDetailsPage}>
+      {trip.name}
+      </CardTrip>
+  })
+
   return (
     <Main >
       <h1>Área administrativa</h1>
-      <p>Abaixo ficará a lista das viagens para checar mais detalhes</p>
       <Button>
         <SpecificButton onClick={goBack}>Voltar</SpecificButton>
         <SpecificButton onClick={goToCreateTripPage}>Criar Viagem</SpecificButton>
         <SpecificButton >Logout</SpecificButton>
       </Button>
-      <p onClick={goToTripDetailsPage}>Viagem 1</p>
+      <p onClick={goToTripDetailsPage}></p>
+      {tripsMaped}
     </Main>
   );
 }

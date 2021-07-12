@@ -82,7 +82,12 @@ export const CreateTripPage = () => {
           title={"O nome da viagem deve ter no mínimo 3 letras"}
         />
 
-        <SelectStyle />
+        <SelectStyle>
+          <option>Selevione um planeta</option>
+          <option>Marte</option>
+          <option>Vênus</option>
+          <option>Saturno</option>
+        </SelectStyle>
 
         <InputStyle 
           placeholder="dd/mm/aaaa"
@@ -108,7 +113,7 @@ export const CreateTripPage = () => {
           onChange={onChange}
           required
           type={"number"}
-          min={18}
+          min={50}
         />
         <Button>
           <SpecificButton onClick={goBackAdminHomePage}>Voltar</SpecificButton>
