@@ -43,7 +43,7 @@ export const TripDetailsPage = () => {
   const history= useHistory()
 
   const goBack = () => {
-    history.push('/')
+    history.push('/admin/trips/list')
   }
 
   useEffect(() => {

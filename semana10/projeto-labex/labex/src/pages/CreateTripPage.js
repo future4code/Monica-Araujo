@@ -83,7 +83,7 @@ export const CreateTripPage = () => {
         />
 
         <SelectStyle>
-          <option>Selevione um planeta</option>
+          <option>Selecione um planeta</option>
           <option>Marte</option>
           <option>Vênus</option>
           <option>Saturno</option>
