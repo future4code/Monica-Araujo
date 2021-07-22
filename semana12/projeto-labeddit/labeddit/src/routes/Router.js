@@ -1,19 +1,16 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import FeedPage from '../pages/FeedPage/FeedPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
-import SingUpPage from '../pages/SingUpPage/SingUpPage';
+import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import PostPage from '../pages/PostPage/PostPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
-import Header from '../components/Header/Header'
 
-const Router = () => {
+const Router = ({setRightButtonText}) => {
     return (
-        <BrowserRouter>
-            <Header/>
             <Switch>
                 <Route exact path='/login'>
-                    <LoginPage/>
+                    <LoginPage setRightButtonText={setRightButtonText}/>
                 </Route>
                 <Route exact path='/'>
                     <FeedPage/>
@@ -22,13 +19,12 @@ const Router = () => {
                     <PostPage/>
                 </Route>
                 <Route exact path='/cadastro'>
-                    <SingUpPage/>
+                    <SignUpPage setRightButtonText={setRightButtonText}/>
                 </Route>
                 <Route>
                     <ErrorPage/>
                 </Route>
-            </Switch>
-        </BrowserRouter>
-    )
+            </Switch>   
+        )
 }
 export default Router

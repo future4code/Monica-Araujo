@@ -33,5 +33,4 @@ export const H1 = styled.h1`
     font-size: 4rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #FF0E1F;
-
 `
