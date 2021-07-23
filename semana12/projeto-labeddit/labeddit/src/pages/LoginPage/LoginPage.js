@@ -5,6 +5,7 @@ import LoginForm from './LoginForm'
 import { useHistory } from 'react-router-dom'
 import {goToSignUpPage} from '../../routes/coordinator'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage'
+import Logo from '../../assets/logo.png'
 
 const LonginPage = ({ setRightButtonText}) => {
     const history = useHistory()
@@ -12,7 +13,7 @@ const LonginPage = ({ setRightButtonText}) => {
 
     return (
         <MainContainer>
-            <H1>LabEddit</H1>
+            <img src={Logo} width="15%" height="20%"/>
             <LoginForm setRightButtonText={setRightButtonText}/>
             <SingUpButtonContainer>
                 <Button

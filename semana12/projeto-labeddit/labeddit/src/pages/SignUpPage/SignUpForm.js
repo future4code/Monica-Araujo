@@ -23,7 +23,7 @@ const SignUpForm = ({setRightButtonText}) => {
                     value={form.username}
                     name={'username'}
                     onChange={onChange}
-                    label={'Nome'}
+                    label={'Nome de usuário'}
                     variant={'outlined'}
                     fullWidth
                     required
