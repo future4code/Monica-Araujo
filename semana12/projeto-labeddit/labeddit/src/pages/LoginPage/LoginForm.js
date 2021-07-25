@@ -1,19 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {InputContainer} from './styled'
 import TextField from '@material-ui/core/TextField'
 import useForm from '../../hooks/useForm'
 import Button from '@material-ui/core/Button'
 import {login} from '../../services/user'
 import {useHistory} from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const LoginForm = ({setRightButtonText}) => {
     const history = useHistory()
     
     const [form, onChange, clear] = useForm({email: '', password: ''})
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const onSubmitForm = (event) => {
         event.preventDefault()
-        login(form, clear, history, setRightButtonText)
+        login(form, clear, history, setRightButtonText, setIsLoading)
     }
 
     return (
@@ -48,7 +51,7 @@ const LoginForm = ({setRightButtonText}) => {
                     color={'primary'}
                     margin={'normal'}
                 >
-                    Fazer Login
+                    {isLoading ? <CircularProgress color={'inherit'} size={24}/> : <>Fazer Login</>}
                     </Button>
             </form>
         </InputContainer>
