@@ -13,8 +13,17 @@ const createTables = () => connection
          email VARCHAR(255) UNIQUE NOT NULL,
          address VARCHAR(255) NOT NULL
       );
+
+      CREATE TABLE aula51_usersAdress (
+         cep VARCHAR(255) NOT NULL,
+         logradouro VARCHAR(255) NOT NULL,
+         numero INT NOT NULL,
+         complemento VARCHAR(255),
+         bairro VARCHAR(255) NOT NULL,
+         cidade NOT NULL, 
+         estado NOT NULL
+      )
    `
-   
    )
    .then(() => { console.log("Tabelas criadas") })
    .catch(printError)
