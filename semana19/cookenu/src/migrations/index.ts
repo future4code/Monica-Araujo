@@ -1,4 +1,4 @@
-import connection from '../connection' 
+import {connection} from '../connection' 
 import { recipeTableName, userTableName } from '../types'
 
 connection.raw(`
