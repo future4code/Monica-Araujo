@@ -27,6 +27,8 @@ app.use(cors());
 const userController = new UserController()
 app.use("/signup", userController.singup)
 
+app.use("/login", userController.login)
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;

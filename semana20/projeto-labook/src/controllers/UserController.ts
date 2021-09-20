@@ -28,11 +28,24 @@ export class UserController {
     }
 
     async login(req: Request, res: Response) {
+        try {
+            let message = "Success!"
 
-        const {email, password} = req.body
-        const input: LoginUserDTO = {
-            email: email, 
-            password: password
+            const {email, password} = req.body
+            const input: LoginUserDTO = {
+                email: email, 
+                password: password
+            }
+
+            const token = await new UserBusiness().login(input)
+
+            res.status(200).send({message, token})
+
+        } catch (error: any) {
+            let message = error.message || error.sqlMessage
+            res.statusCode = 400
+            res.send({message})
         }
+        
     }
 }
