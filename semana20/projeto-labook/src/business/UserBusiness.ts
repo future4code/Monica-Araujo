@@ -1,4 +1,4 @@
-import { SingupInputDTO, User } from "../entities/User";
+import { LoginUserDTO, SingupInputDTO, User } from "../entities/User";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
 import { UserDatabase } from "../data/UserDatabase";
@@ -32,6 +32,25 @@ export class UserBusiness {
             return token
         
         } catch(error: any) {
+            throw new Error(error.message)
+        }
+        
+    }
+
+    async login (input: LoginUserDTO) : Promise<string> {
+        try {
+            if (!input.email || !input.password) {
+                throw new Error('"email" and "password" must be provided')
+            }
+
+            const userDatabase = new UserDatabase()
+            const user: User = await userDatabase.getUserByEmail(input.email)
+
+            if (!user) {
+                throw new Error("Invalid credentials")
+            }
+
+        } catch (error: any) {
             throw new Error(error.message)
         }
         

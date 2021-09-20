@@ -3,7 +3,7 @@ import cors from 'cors'
 import { AddressInfo } from "net";
 import dotenv from "dotenv";
 import knex, {Knex} from 'knex'
-import { userRouter } from './routes/userRouter';
+import { UserController } from './controllers/UserController';
 
 dotenv.config();
 
@@ -23,7 +23,9 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(cors());
-app.use("/user", userRouter)
+
+const userController = new UserController()
+app.use("/signup", userController.singup)
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

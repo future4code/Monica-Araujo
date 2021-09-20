@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { SingupInputDTO } from "../entities/User";
+import { LoginUserDTO, SingupInputDTO } from "../entities/User";
 
 export class UserController {
 
@@ -24,6 +24,15 @@ export class UserController {
         } catch (error: any) {
             console.log(error.message)
             res.status(500).send("Internal server error")
+        }
+    }
+
+    async login(req: Request, res: Response) {
+
+        const {email, password} = req.body
+        const input: LoginUserDTO = {
+            email: email, 
+            password: password
         }
     }
 }
